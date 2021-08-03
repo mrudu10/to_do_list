@@ -1,0 +1,44 @@
+1) we have to have an id wrt the up to dated changes=> Date.now()
+2)get the needed element from HTML fil which is getElementById("element id name )
+3) we just need the value of the objects so we are doing .value
+4)check up the things by doing console.log(taskData) to see if while pressing save changes the items are getting printed or not
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+                TO MAKE IT APPEAR AS A NEW CARD
+5) create a newCard function that will have the exact code of html that is req to create a new card, since its multi-line, we use ``
+6)to make that display  as a card on adjacent to the existing card so we create a querySelector the specifically rack tha required Id to be selected and then we use insertAdjacentHTML("beforeend",value)
+--------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                     TO CREATE A LOCAL STORAGE
+7) Now we should have a local storage so as to retain the changes made on the page.
+8) So creating an arr of objects which can hold the changes-globalStore
+9)To insert the data into global store we use push to push the taskdata into globalStore
+10) Now we have localStorage which is a keyword. 
+11) we will make that array as a localstorage element and we will set all teh values into it. We cannot push the objects directly into local storage
+12)we need a unique id or name our storage so as to use it.
+13)Now whatever we have inserted its in objects of objects format so we will convert it into array of objects that is readable format
+14)JSON.stringify((key:value));
+Stringify will take an input of object of objects and will convert it into array of objects.
+key can be anything jere we gave it as cards
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+                    FETCH DATA STORED IN LOCAL STORAGE AND DISPLAY IT-loadInitialCard()
+
+15) Now that we have our data stored in local storage, we will need a function to retrieve and the data from local storage
+16) we have named our storage as tasky and now we want to get the items from that storage so we use getItem("tasky)
+17)Now whatever we got is in array of object format coz thats how we stored it, 
+now we want to convert it back to normal object which is opposite of stringify i.e parse.
+
+18) We need to retain the content whenever we refresh the page so we give the loadInitialCard function 
+to HTML body coz every time we refresh the entire body should get updated.
+
+19)To insert the entire data of the card on the page we have to iterate through each item or element on the card so we loop over the objects of card
+20) now to iterate through the objects we have to have each element separately so we are destructuring the cards and then iterate through the cards
+{cards} this is destructuring of the object tasky and storing it into cards
+
+21)now map through the de-structured object using map SYNTAX: cards.map((e)=>{console.log(e) or do required task});
+
+22) we will create a function which will have the de-structured object as parameter. 
+(this function is the edited version of new card, its just changed as a parameterized function)
+23) we then have to ensure that other cards along with new added card is updated in the localstorage. so we push the entire card object into the local storage
+
